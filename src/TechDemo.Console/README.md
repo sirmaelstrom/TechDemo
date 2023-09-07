@@ -18,3 +18,6 @@ Demonstrates displaying every other character in a string 'abcdefghijklmnopqrstu
 
 ### Char to Numeric
 Demonstrates multiple methods for converting a character to numeric value
+
+### Is Prime
+Demonstrates method for determining if an integer is a prime number

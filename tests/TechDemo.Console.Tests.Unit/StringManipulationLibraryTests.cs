@@ -5,7 +5,7 @@ using Xunit;
 
 namespace TechDemo.Console.Tests.Unit;
 
-public class UnitTest1
+public class StringManipulationLibraryTests
 {
     private readonly StringManipulationLibrary _sut = new();
     

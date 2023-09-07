@@ -1,5 +1,6 @@
 using TechDemo.Console.Commands;
 using TechDemo.Console.Interfaces;
+using TechDemo.Console.Libraries;
 
 namespace TechDemo.Console;
 
@@ -13,6 +14,7 @@ public class Startup
         commands.Add(new SubstringCommand());
         commands.Add(new StringEveryOtherCharacterCommand());
         commands.Add(new CharToNumericCommand());
+        commands.Add(new NumberIsPrimeCommand());
 
         // TODO: Support non-interactive mode (where user just supplies args and we do something)
         var ui = new InteractiveUserInterface(commands);

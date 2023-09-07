@@ -4,7 +4,7 @@ using Xunit;
 
 namespace TechDemo.Console.Tests.Unit;
 
-public class CharToNumericTests
+public class CharToNumericLibraryTests
 {
     private CharToNumeric _sut = new();
 
