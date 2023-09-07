@@ -21,3 +21,6 @@ Demonstrates multiple methods for converting a character to numeric value
 
 ### Is Prime
 Demonstrates method for determining if an integer is a prime number
+
+### Singleton
+Demonstrates a singleton design pattern implementation
