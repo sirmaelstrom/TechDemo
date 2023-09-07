@@ -1,4 +1,4 @@
-using System.IO.Enumeration;
+using System.Collections;
 using TechDemo.Console.Interfaces;
 
 namespace TechDemo.Console.Commands;
@@ -10,6 +10,7 @@ public class ObjectArrayCommand : ICommand
     public string[] ArgDefinitions => Array.Empty<string>();
     public void Execute(string[] args)
     {
+        System.Console.WriteLine("Using object[]:");
         object[] objectArray = new object[3];
         objectArray[0] = 42; // int (value type)
         objectArray[1] = "Hello, world!"; // string (reference type)
@@ -21,7 +22,18 @@ public class ObjectArrayCommand : ICommand
         {
             System.Console.WriteLine(obj);
         }
+        
+        System.Console.WriteLine("Using ArrayList (from System.Collections)");
+        ArrayList array = new ArrayList();
+        array.Add(420);
+        array.Add("Hello, world 2!");
+        array.Add(person);
 
+        foreach (object obj in array)
+        {
+            System.Console.WriteLine(obj);
+        }
+        
         System.Console.WriteLine("--------------------------------");
         System.Console.WriteLine("Value Types:  data stored directly in memory and variables of value types hold the actual data");
         System.Console.WriteLine("They store their data directly on the stack or inline within other data structures.");
@@ -39,14 +51,14 @@ public class ObjectArrayCommand : ICommand
         
     }
 
-    class Person
+    private class Person
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int Id { get; init; }
+        public string? Name { get; init; }
 
         public override string ToString()
         {
-            return Name;
+            return $"Person {Id}: {Name}";
         }
     }
 }

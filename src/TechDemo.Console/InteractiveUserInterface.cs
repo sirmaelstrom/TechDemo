@@ -47,7 +47,7 @@ public class InteractiveUserInterface
             if (!_availableCommands.ContainsKey(pressedCharacter)) continue;
             
             var commandToExecute = _availableCommands[pressedCharacter];
-            var args = PromptUserForArgs(commandToExecute.ArgDefinitions);
+            var args = PromptUserForArgs(commandToExecute.CommandName, commandToExecute.ArgDefinitions);
             commandToExecute.Execute(args);
             System.Console.WriteLine("Press any key to continue");
             System.Console.ReadKey(true);
@@ -77,15 +77,16 @@ public class InteractiveUserInterface
     /// <summary>
     /// Prompt the user for args and return the values they submitted.
     /// </summary>
+    /// <param name="commandName">The currently executed command</param>
     /// <param name="argDefinitions">Definitions for the args to display to the users.</param>
-    private string[] PromptUserForArgs(string[] argDefinitions)
+    private string[] PromptUserForArgs(string commandName, string[] argDefinitions)
     {
         var args = new string[argDefinitions.Length];
         for (var i = 0; i < argDefinitions.Length; i++)
         {
             while (true)
             {
-                System.Console.Write($"{argDefinitions[i]}: ");
+                System.Console.Write($"{commandName} - {argDefinitions[i]}: ");
                 var userInput = System.Console.ReadLine();
                 if (userInput is { Length: <= 0 }) continue;
                 Debug.Assert(userInput != null, nameof(userInput) + " != null");

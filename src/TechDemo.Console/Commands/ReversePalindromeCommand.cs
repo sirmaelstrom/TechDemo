@@ -21,11 +21,7 @@ public class ReversePalindromeCommand : ICommand
         var str = args[0];
         var reverse = _sml.ReverseString(str);
 
-        System.Console.WriteLine($"Entered String was {str} and reversed string is {reverse} \n");
-        
-        if (reverse == str) // check if palindrome
-        {
-            System.Console.WriteLine("String is Palindrome");
-        }
+        System.Console.WriteLine($"Entered String was {str} and reversed string is {reverse}");
+        System.Console.WriteLine($"String is{(reverse == str ? "" : " not")} Palindrome");
     }
 }
