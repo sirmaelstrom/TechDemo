@@ -24,3 +24,6 @@ Demonstrates method for determining if an integer is a prime number
 
 ### Singleton
 Demonstrates a singleton design pattern implementation
+
+### Object Array
+Demonstrates storing multiple types in an object array and printing their values.  Provides explanation of reference and value types.

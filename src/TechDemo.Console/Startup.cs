@@ -15,6 +15,7 @@ public class Startup
         commands.Add(new CharToNumericCommand());
         commands.Add(new NumberIsPrimeCommand());
         commands.Add(new SingletonCommand());
+        commands.Add(new ObjectArrayCommand());
 
         // TODO: Support non-interactive mode (where user just supplies args and we do something)
         var ui = new InteractiveUserInterface(commands);

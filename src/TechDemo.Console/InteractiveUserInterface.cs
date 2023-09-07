@@ -28,7 +28,6 @@ public class InteractiveUserInterface
     /// </summary>
     public void Start()
     {
-        System.Console.Write(GreetingMessage);
         DisplayRepl();
     }
 
@@ -38,6 +37,7 @@ public class InteractiveUserInterface
     private void DisplayRepl()
     {
         DisplayAvailableCommands();
+        
         while (true)
         {
             var key = System.Console.ReadKey(true);
@@ -49,6 +49,9 @@ public class InteractiveUserInterface
             var commandToExecute = _availableCommands[pressedCharacter];
             var args = PromptUserForArgs(commandToExecute.ArgDefinitions);
             commandToExecute.Execute(args);
+            System.Console.WriteLine("Press any key to continue");
+            System.Console.ReadKey(true);
+            System.Console.Clear();
             DisplayAvailableCommands();
         }
     }
@@ -58,6 +61,8 @@ public class InteractiveUserInterface
     /// </summary>
     private void DisplayAvailableCommands()
     {
+        System.Console.Write(GreetingMessage);
+
         // We always want a line above the commands
         System.Console.WriteLine();
         System.Console.WriteLine("Available commands:");
