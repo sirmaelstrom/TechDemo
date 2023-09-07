@@ -22,8 +22,18 @@ public static class IntegerLibrary
         }
 
         // Loop to check divisibility by numbers in form of 6k +- 1, where k is an integer.
-        // This is an optimization to reduce the number of checks
-        for (int i = 5; i * i <= number; i += 6)
+        // This is an optimization to reduce the number of checks:
+        // After excluding numbers divisible by 2 or 3, we enter a loop that iterates over numbers of the form 6k ± 1,
+        // where k is incremented in each iteration. The loop continues until k squared is greater than or equal to
+        // number.
+        //  In each iteration, we check whether number is divisible by 6k - 1 and 6k + 1. If number is divisible by
+        //  either of these numbers, we return false because it's not prime.
+        //  The loop only considers numbers of the form 6k ± 1 because any integer that's not divisible by 2 or 3 and
+        //  greater than 3 can be expressed as 6k ± 1 for some positive integer k. Therefore, we only need to check
+        //  these numbers.
+        //  By incrementing k in each iteration, we efficiently check divisibility by a subset of potential divisors,
+        //  reducing the number of checks compared to a full brute-force approach.
+        for (var i = 5; i * i <= number; i += 6)
         {
             if (number % i == 0 || number % (i + 2) == 0)
             {
