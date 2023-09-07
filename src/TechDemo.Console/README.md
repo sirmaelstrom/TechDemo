@@ -8,7 +8,7 @@ REPL implementation with minor modification thanks to DeanPDX (see https://githu
 ## Demonstrations
 
 ### Reverse Palindrome
-This command demonstrates reversing a string and identifying if the string is a palindrome.
+This command demonstrates reversing a user input string and identifying if the string is a palindrome.
 
 ### Substring
 Demonstrates utilizing nested loops to identify all substrings of user input string.  Also demonstrates utilizing post-incrementing vs pre-incrementing.
