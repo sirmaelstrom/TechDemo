@@ -1,5 +1,5 @@
-# csharp technical interview prep
-
+# sirmaelstrom's tech demo
+Simple console application to practice and demonstrate programming concepts in c#
 
 ## Acknowledgements
 
