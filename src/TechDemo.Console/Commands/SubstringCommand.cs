@@ -19,10 +19,9 @@ public class SubstringCommand : ICommand
         var str = args[0];
         
         System.Console.WriteLine("Substrings for given string are: ");
-
-        _sml.GenerateSubstrings(str);
+        System.Console.WriteLine(_sml.GenerateSubstrings(str));
         
         System.Console.WriteLine("\nUsing manual pre-increment method: ");
-        _sml.GenerateSubstringsManualPreIncrement(str);
+        System.Console.WriteLine(_sml.GenerateSubstringsManualPreIncrement(str));
     }
 }
