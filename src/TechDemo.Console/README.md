@@ -43,7 +43,7 @@ Demonstrates computing approximation of pi using the Nilakantha series with para
 
 ### Fibonacci Closure
 
-Demonstrates a Fibonacci closure (a closure is a function that encapsulates some state) that generates Fibonacci numbers
+Demonstrates a closure (a function that encapsulates some state) that generates Fibonacci numbers
 
 ### Peano inters
 
