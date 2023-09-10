@@ -35,3 +35,20 @@ Demonstrates a singleton design pattern implementation
 
 Demonstrates storing multiple types in an object array and printing their values. Provides explanation of reference and
 value types.
+
+
+### CalculatePi
+
+Demonstrates computing approximation of pi using the Nilakantha series with parallel processing
+
+### Fibonacci Closure
+
+Demonstrates a Fibonacci closure (a closure is a function that encapsulates some state) that generates Fibonacci numbers
+
+### Peano inters
+
+Demonstrate Peano integers which are a way to represent natural numbers using a recursive structure.  Each integer is either 0 (Z) or the successor of another Peano integer (S)
+
+### Generate Primes (Work-in-progress)
+
+Generate prime numbers using a concurrent prime sieve approach.  In order to avoid the actual infinite creation I've tried utilizing a timeout, but this is not yet working as I have expected.
