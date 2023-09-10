@@ -9,13 +9,8 @@
 
 
     <ItemGroup>
-      <Compile Remove="Command.cs" />
+        <Compile Remove="Command.cs"/>
     </ItemGroup>
-
-
-
-
-
 
 
 </Project>

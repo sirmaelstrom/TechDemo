@@ -5,12 +5,12 @@ namespace TechDemo.Console;
 
 public class InteractiveUserInterface
 {
-    private const string GreetingMessage = @"Welcome to HeathDev Technical Interview Examples! Press ""q"" to quit.";
+    private const string GreetingMessage = @"Welcome to HeathDev Technical Interview Examples! Enter ""0"" to quit.";
 
     /// <summary>
     /// We are storing our commands in a dictionary for fast indexing later on.
     /// </summary>
-    private readonly Dictionary<char, ICommand> _availableCommands;
+    private readonly Dictionary<int, ICommand> _availableCommands;
 
     /// <summary>
     /// A class for showing messages to the user
@@ -18,9 +18,9 @@ public class InteractiveUserInterface
     /// <param name="availableCommands">Commands available to the user.</param>
     public InteractiveUserInterface(List<ICommand> availableCommands)
     {
-        _availableCommands = new Dictionary<char, ICommand>();
+        _availableCommands = new Dictionary<int, ICommand>();
         var i = 1;
-        availableCommands.ForEach(cmd => _availableCommands.Add(i++.ToString()[0], cmd));
+        availableCommands.ForEach(cmd => _availableCommands.Add(i++, cmd));
     }
 
     /// <summary>
@@ -40,13 +40,26 @@ public class InteractiveUserInterface
         
         while (true)
         {
-            var key = System.Console.ReadKey(true);
-            var pressedCharacter = key.KeyChar;
-            if (pressedCharacter == 'q') { return; }
+            var option = System.Console.ReadLine();
 
-            if (!_availableCommands.ContainsKey(pressedCharacter)) continue;
+            int enteredOption;
+            while (true)
+            {
+                if (int.TryParse(option, out var parsedInt))
+                {
+                    enteredOption = parsedInt;
+                    break;
+                }
+
+                System.Console.WriteLine("Value not integer, please try again");
+                option = System.Console.ReadLine();
+            }
             
-            var commandToExecute = _availableCommands[pressedCharacter];
+            if (enteredOption == 0) { return; }
+
+            if (!_availableCommands.ContainsKey(enteredOption)) continue;
+            
+            var commandToExecute = _availableCommands[enteredOption];
             var args = PromptUserForArgs(commandToExecute.CommandName, commandToExecute.ArgDefinitions);
             commandToExecute.Execute(args);
             System.Console.WriteLine("Press any key to continue");

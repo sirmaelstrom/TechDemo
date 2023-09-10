@@ -16,6 +16,9 @@ public class Startup
         commands.Add(new NumberIsPrimeCommand());
         commands.Add(new SingletonCommand());
         commands.Add(new ObjectArrayCommand());
+        commands.Add(new FibonacciClosureCommand());
+        commands.Add(new PeanoIntegerCommand());
+        commands.Add(new ApproximatePiConcurrentComputationCommand());
 
         // TODO: Support non-interactive mode (where user just supplies args and we do something)
         var ui = new InteractiveUserInterface(commands);

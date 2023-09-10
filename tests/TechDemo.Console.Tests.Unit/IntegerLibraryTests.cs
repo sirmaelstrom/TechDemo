@@ -40,4 +40,59 @@ public class IntegerLibraryTests
         result.Should().Be(expectedResult);
     }
     
+    // To-do:  address timeout issues
+    [Fact]
+    public void GeneratePrimes_ShouldGenerateCorrectNumberOfPrimes()
+    {
+        // Arrange
+        int numberOfPrimesToGenerate = 10;
+        int timeoutMilliseconds = 5000; // Set a timeout (e.g., 5 seconds)
+
+        // Act
+        var generateTask = Task.Run(() =>
+        {
+            return IntegerLibrary.GeneratePrimes(numberOfPrimesToGenerate, timeoutMilliseconds)
+                .Take(numberOfPrimesToGenerate)
+                .ToList();
+        });
+
+        bool completed = generateTask.Wait(timeoutMilliseconds);
+
+        // Assert
+        completed.Should().BeTrue("the task should complete within the timeout");
+
+        if (completed)
+        {
+            var primes = generateTask.Result;
+            primes.Should().HaveCount(numberOfPrimesToGenerate);
+        }
+    }
+
+    // To-do:  address timeout issues
+    [Fact]
+    public void GeneratePrimes_ShouldGenerateValidPrimes()
+    {
+        // Arrange
+        int numberOfPrimes = 10;
+        int timeoutMilliseconds = 5000; // Set a timeout (e.g., 5 seconds)
+
+        // Act
+        var primes = IntegerLibrary.GeneratePrimes(numberOfPrimes, timeoutMilliseconds);
+
+        // Assert
+        primes.Should().OnlyContain(x => _sut.IsPrime(x));
+    }
+
+    [Fact]
+    public void GeneratePrimes_ShouldThrowArgumentException_WithInvalidNumberOfPrimes()
+    {
+        // Arrange
+        int invalidNumberOfPrimes = 0;
+        int timeoutMilliseconds = 5000; // Set a timeout (e.g., 5 seconds)
+
+        // Act and Assert
+        Action act = () => IntegerLibrary.GeneratePrimes(invalidNumberOfPrimes, timeoutMilliseconds);
+        act.Should().Throw<ArgumentException>().WithMessage("Number of primes must be greater than or equal to 1.");
+    }
+    
 }
