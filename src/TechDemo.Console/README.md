@@ -4,6 +4,11 @@
 
 REPL implementation with minor modification thanks to DeanPDX (see https://github.com/DeanPDX/sql-fileizer/)
 
+Modifications include:
+- Support more commands by changing available commands dictionary key to be integer instead of char, set 0 to exit instead of 'q'
+- Adjust the behavior of the welcome message and command list.  After running each command wait for user key input and then redraw interface.
+- Add command name to command display and argument prompt
+
 ## Demonstrations
 
 ### Reverse Palindrome
